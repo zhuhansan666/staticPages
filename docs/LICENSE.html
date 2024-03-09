@@ -41,9 +41,9 @@
     </li>
 </ol>
 <script>
-    fetch('https://ipapi.co/json').then(async (data) => {
+    fetch('http://ip-api.com/json').then(async (data) => {
         const ipData = await data.json()
-        if (ipData.country_code === 'CN') {  // Country or region ISO code
+        if (ipData.countryCode === 'CN') {  // Country or region ISO code
             document.getElementById('cjk-link')?.setAttribute('href', '#CJK-CN')
         } else {
             document.getElementById('cjk-link')?.setAttribute('href', '#CJK')
