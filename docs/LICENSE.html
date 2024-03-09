@@ -55,36 +55,15 @@
         </ol>
       </li>
     </ol>
-    <h3 id="注释">注释</h3>
-    <ol class="incremental" type="1">
-      <li>
-        <a
-          rel="noopener noreferrer"
-          id="CJK"
-          target="_blank"
-          href="https://zh.wikipedia.org/wiki/中日韓統一表意文字"
-          >CJK 字符 - Wikipedia</a
-        >
-      </li>
-      <li>
-        <a
-          rel="noopener noreferrer"
-          id="CJK-CN"
-          target="_blank"
-          href="https://baike.baidu.com/item/中日韩越统一表意文字"
-          >CJK 字符 - 百度百科 (中国大陆可访问)</a
-        >
-      </li>
-    </ol>
     <script>
     fetch("https://api.ipapi.is/")
     .then(async (data) => {
         const ipData = await data.json();
         if (ipData?.location?.country_code === "CN") {
         // Country or region ISO code
-        document.getElementById("cjk-link")?.setAttribute("href", "#CJK-CN");
+        document.getElementById("cjk-link")?.setAttribute("href", "https://baike.baidu.com/item/中日韩越统一表意文字");
         } else {
-        document.getElementById("cjk-link")?.setAttribute("href", "#CJK");
+        document.getElementById("cjk-link")?.setAttribute("href", "https://zh.wikipedia.org/wiki/中日韓統一表意文字");
         }
     })
     </script>
