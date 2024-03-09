@@ -59,11 +59,17 @@
     fetch("https://api.ipapi.is/")
     .then(async (data) => {
         const ipData = await data.json();
-        if (ipData?.location?.country_code === "CN") {
-        // Country or region ISO code
-        document.getElementById("cjk-link")?.setAttribute("href", "https://baike.baidu.com/item/中日韩越统一表意文字");
-        } else {
-        document.getElementById("cjk-link")?.setAttribute("href", "https://zh.wikipedia.org/wiki/中日韓統一表意文字");
+        if (ipData?.location?.country_code === "CN") {  // Country or region ISO code
+            document.getElementById("cjk-link")?.setAttribute("href", "https://baike.baidu.com/item/中日韩越统一表意文字");
+        }
+    }).finally(() => {
+        let e = document.getElementById("cjk-link");
+        if (!e) {
+            return;
+        }
+
+        if (!e?.hasAttribute('href')) {
+            e?.setAttribute("href", "https://zh.wikipedia.org/wiki/中日韓統一表意文字");
         }
     })
     </script>
